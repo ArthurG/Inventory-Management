@@ -2,16 +2,14 @@
 
 one:
   name: MyString
-  quantity: 1
   category: MyString
-  cadprice: 1.5
-  usdprice: 1.5
-  added: 2015-12-18 17:17:26
+  cad_price: 1.5
+  usd_price: 1.5
+  quantity: 1
 
 two:
   name: MyString
-  quantity: 1
   category: MyString
-  cadprice: 1.5
-  usdprice: 1.5
-  added: 2015-12-18 17:17:26
+  cad_price: 1.5
+  usd_price: 1.5
+  quantity: 1

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sale Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Fields</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sale_categories.each do |sale_category| %>
+      <tr>
+        <td><%= sale_category.name %></td>
+        <td><%= sale_category.fields %></td>
+        <td><%= link_to 'Show', sale_category %></td>
+        <td><%= link_to 'Edit', edit_sale_category_path(sale_category) %></td>
+        <td><%= link_to 'Destroy', sale_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sale category', new_sale_category_path %>

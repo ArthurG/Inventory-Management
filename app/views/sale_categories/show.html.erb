@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sale_category.name %>
+</p>
+
+<p>
+  <strong>Fields:</strong>
+  <%= @sale_category.fields %>
+</p>
+
+<%= link_to 'Edit', edit_sale_category_path(@sale_category) %> |
+<%= link_to 'Back', sale_categories_path %>

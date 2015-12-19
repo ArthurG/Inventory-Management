@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  quantity: 1
+  category: MyString
+  cadprice: 1.5
+  usdprice: 1.5
+  added: 2015-12-18 17:17:26
+
+two:
+  name: MyString
+  quantity: 1
+  category: MyString
+  cadprice: 1.5
+  usdprice: 1.5
+  added: 2015-12-18 17:17:26

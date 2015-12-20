@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :purchases
   resources :purchases
   resources :sale_categories
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

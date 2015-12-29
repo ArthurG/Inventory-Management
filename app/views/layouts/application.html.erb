@@ -11,6 +11,13 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
+  <div class = "container-fluid" %>
+    <% flash.each do |type, msg| %>
+      <div class = "alert alert-<%= type %>" >
+        <p> <%= msg %> </p>
+      </div>
+     <% end %>
+  </div>
   <%= yield %>
   <%= render 'layouts/footer' %>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151220015436) do
+ActiveRecord::Schema.define(version: 20151230023719) do
 
   create_table "product_attributes", force: :cascade do |t|
     t.string   "key"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20151220015436) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
+    t.string   "remember_digest"
   end
 
 end

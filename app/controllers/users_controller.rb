@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			flash[:success] = "Your account has been created for Ruby on Rails inventory management"
+			log_in(@user)
 			redirect_to @user
 		else
 			render 'new'
@@ -24,4 +25,5 @@ class UsersController < ApplicationController
 																	:password_confirmation,
 																	:user_type)
 		end
+
 end

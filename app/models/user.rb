@@ -2,13 +2,13 @@ class User < ActiveRecord::Base
 	attr_accessor :remember_token
 	before_save {self.email = email.downcase}
 
-	enum user_type: [:admin, :manager, :buyer, :constructor, :seller, :viewer]
+	enum user_type: ["Owner", "HR Manager", "Buyer", "Builder", "Salesperson", "Data Analyser", "Viewer"]
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, length: { maximum: 255 },
 		format: {with: VALID_EMAIL_REGEX},
 		uniqueness: { case_sensitive: false}
 	has_secure_password
-	validates :password, presence: true, length: {minimum: 6}
+	validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 	validates :user_type, presence: true
 
 	def User.digest(string)
@@ -34,5 +34,4 @@ class User < ActiveRecord::Base
 		return false if remember_digest.nil?
 		BCrypt::Password.new(remember_digest).is_password?(remember_token)
 	end
-
 end

@@ -5,7 +5,12 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5'
 #Encrypted passwords
 gem 'bcrypt'
-#Bootstrap to make it look half decent
+#Make fake products for database
+gem 'faker', '1.4.2'
+#Paginate users
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+#Bootstrap to website responsive
 gem 'bootstrap-sass'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

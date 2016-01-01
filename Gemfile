@@ -12,6 +12,8 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 #Bootstrap to website responsive
 gem 'bootstrap-sass'
+
+gem 'jquery-turbolinks'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

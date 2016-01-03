@@ -1,15 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  category: MyString
+  name: wheel
   cad_price: 1.5
   usd_price: 1.5
-  quantity: 1
+  purchase_category_id: 1
 
-two:
-  name: MyString
-  category: MyString
-  cad_price: 1.5
-  usd_price: 1.5
-  quantity: 1
+

@@ -1,0 +1,26 @@
+<%= form_for(@user) do |f| %>
+	<%= render 'error_messages', object: @user %>
+		<div class = "form-group">
+			<%= f.label :email %>
+			<%= f.email_field :email, class: "form-control"%>
+		</div>
+
+		<div class = "form-group">
+			<%= f.label :user_type %>
+			<br/>
+			<%= f.select :user_type, possible_user_types, {prompt: "Select User Role"}, {required: 'true', autofocus: 'true', class: "form-control"} %>
+		</div>
+
+		<div class = "form-group">
+			<%= f.label :password %>
+			<%= f.password_field :password, class: "form-control" %>
+		</div>
+
+		<div class = "form-group">
+			<%= f.label :password_confirmation, "Confirmation" %>
+			<%= f.password_field :password_confirmation, class: "form-control"%>
+		</div>
+
+	<%= f.submit yield(:button_text), class: "btn btn-primary form-control" %>
+
+<% end %>

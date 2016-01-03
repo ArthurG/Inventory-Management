@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
 
+  resources :inventory_types
+  get 'inventory_types/number_characteristics' => "inventory_types#number_characteristics"
+  resources :purchases
+  resources :purchases
+  resources :purchase_categories
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
   
   resources :product_attributes
   resources :sale_items
-  resources :purchases
-  resources :purchases
   resources :sale_categories
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
@@ -67,6 +70,5 @@ Rails.application.routes.draw do
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  #     #   end
 end

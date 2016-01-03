@@ -19,3 +19,5 @@ User.create!(email: "adminuser@gmail.com",
 		password: "password", 
 		password_confirmation: "password")
 end
+
+ProductCategory.create!(name: "Wheel")

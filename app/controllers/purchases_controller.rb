@@ -15,10 +15,15 @@ class PurchasesController < ApplicationController
   # GET /purchases/new
   def new
     @purchase = Purchase.new
+    unless params[:category].nil?
+      @purchase = PurchaseCategory.find_by(id: params[:category]).purchases.new
+    end
+    @categories = PurchaseCategory.all
   end
 
   # GET /purchases/1/edit
   def edit
+    @categories = PurchaseCategory.all
   end
 
   # POST /purchases
@@ -31,7 +36,9 @@ class PurchasesController < ApplicationController
         format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
         format.json { render :show, status: :created, location: @purchase }
       else
-        format.html { render :new }
+        format.html { 
+          @categories = PurchaseCategory.all
+          render :new }
         format.json { render json: @purchase.errors, status: :unprocessable_entity }
       end
     end
@@ -69,6 +76,6 @@ class PurchasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
-      params.require(:purchase).permit(:name, :category, :cad_price, :usd_price, :quantity)
+      params.require(:purchase).permit(:name, :cad_price, :usd_price, :purchase_category_id)
     end
 end

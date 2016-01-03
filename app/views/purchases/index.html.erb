@@ -1,35 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Purchases</h1>
+<div class = "row">
+  <h1 class = "col-md-6">All Purchases</h1> 
+  <%= link_to 'New Purchase Category', new_purchase_category_path, class: "btn btn-default col-md-3 new-form-btn" %>
+  <%= link_to 'New Purchase', new_purchase_path, class: "btn btn-default col-md-2 new-form-btn" %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Cad price</th>
-      <th>Usd price</th>
-      <th>Quantity</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @purchases.each do |purchase| %>
-      <tr>
-        <td><%= purchase.name %></td>
-        <td><%= purchase.category %></td>
-        <td><%= purchase.cad_price %></td>
-        <td><%= purchase.usd_price %></td>
-        <td><%= purchase.quantity %></td>
-        <td><%= link_to 'Show', purchase %></td>
-        <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
-        <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Purchase', new_purchase_path %>
+<div class = "row">
+  <%= render partial: 'shared/purchase_table', locals: {purchases: @purchases} %>
+</div>

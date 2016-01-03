@@ -1,6 +1,4 @@
 <h1>Editing Purchase</h1>
 
-<%= render 'form' %>
+<%= render partial: 'form', locals: {cancel_changes: true} %>
 
-<%= link_to 'Show', @purchase %> |
-<%= link_to 'Back', purchases_path %>

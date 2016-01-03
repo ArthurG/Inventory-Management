@@ -11,27 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :cad_price %><br>
-    <%= f.text_field :cad_price %>
+    <%= f.text_field :cad_price, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :usd_price %><br>
-    <%= f.text_field :usd_price %>
+    <%= f.text_field :usd_price, class: 'form-control'%>
   </div>
-  <div class="field">
-    <%= f.label :quantity %><br>
-    <%= f.number_field :quantity %>
+  <div class="form-group">
+    <%= f.label :purchase_category_id %><br>
+    <%= f.collection_select :purchase_category_id, @categories, :id, :name, {prompt: "Select category" }, {required: 'true', autofocus: 'true', class: "form-control"}%>
+    <%= link_to "Can't find the right category? Make your own", new_purchase_category_path %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <%= f.submit "Submit", class: 'btn btn-primary' %>
+  <% back_text = "Back" %>
+  <% if cancel_changes %>
+    <% back_text = "Cancel Changes" %>
+  <% end  %>
+  <%= link_to back_text, 'javascript:history.go(-1);', class: "btn btn-default" %>
 <% end %>

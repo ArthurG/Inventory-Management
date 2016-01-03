@@ -1,0 +1,5 @@
+<%= form_tag("inventory_types/new", method: "get") do %>
+	<%= label_tag(:number_of_characteristics, "Number of Characteristics") %>
+	<%= text_field_tag(:number_of_characteristics) %>
+	<%= submit_tag("Create") %>
+<% end %>

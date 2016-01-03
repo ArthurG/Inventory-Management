@@ -1,0 +1,13 @@
+<div class="row">
+		<p id="notice"><%= notice %></p>
+		<p>
+		  <strong>Purchase Category Name:</strong>
+		  <%= @purchase_category.name %>
+		</p>
+
+
+  	<%= render partial: 'shared/purchase_table', locals: {purchases: @purchase_category.purchases} %>
+
+		<%= link_to 'Edit', edit_purchase_category_path(@purchase_category), class: "btn btn-primary" %> 
+		<%= link_to 'Back', purchase_categories_path, class: "btn btn-default" %>
+</div>

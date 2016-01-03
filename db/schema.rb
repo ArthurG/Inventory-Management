@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151230023719) do
+ActiveRecord::Schema.define(version: 20160102211113) do
+
+  create_table "characteristics", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "inventory_type_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "characteristics", ["inventory_type_id"], name: "index_characteristics_on_inventory_type_id"
+
+  create_table "inventory_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "product_attributes", force: :cascade do |t|
     t.string   "key"
@@ -20,15 +35,22 @@ ActiveRecord::Schema.define(version: 20151230023719) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "purchases", force: :cascade do |t|
+  create_table "purchase_categories", force: :cascade do |t|
     t.string   "name"
-    t.string   "category"
-    t.float    "cad_price"
-    t.float    "usd_price"
-    t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "purchases", force: :cascade do |t|
+    t.text     "name"
+    t.float    "cad_price"
+    t.float    "usd_price"
+    t.integer  "purchase_category_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "purchases", ["purchase_category_id"], name: "index_purchases_on_purchase_category_id"
 
   create_table "sale_categories", force: :cascade do |t|
     t.string   "name"

@@ -1,0 +1,26 @@
+<table class = "table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Cad price</th>
+      <th>Usd price</th>
+      <th>Purchase category</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% purchases.each do |purchase| %>
+      <tr>
+        <td><%= link_to purchase.name, purchase %></td>
+        <td><%= purchase.cad_price %></td>
+        <td><%= purchase.usd_price %></td>
+        <td><%= purchase.purchase_category.name %></td>
+        <td><%= link_to 'Edit', edit_purchase_path(purchase), class: "btn btn-default" %></td>
+        <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,37 @@
+<% provide(:title, "Product Categories") %>
+
+<p id="notice"><%= notice %></p>
+
+<div class = "row">
+  <h1 class = "col-md-8">All Purchase Categories</h1> 
+  <%= link_to 'New category', new_purchase_category_path, class: "btn btn-default align-right col-md-offset 2 col-md-2 new-form-btn" %>
+</div>
+
+<div class = "row">
+  <table class= 'table table-condensed'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Number of Products</th>
+        <th>New Purchase</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th colspan="5"></th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @purchase_categories.each do |purchase_category| %>
+        <tr>
+          <td><%= link_to purchase_category.name, purchase_category %></td>
+          <td><%= purchase_category.purchases.size %></td>
+          <td><%= link_to 'New Purchase', new_purchase_path(category: purchase_category), class: 'btn btn-default btn-sm' %></td>      
+          <td><%= link_to 'Edit', edit_purchase_category_path(purchase_category), class: 'btn btn-default btn-sm' %></td>
+          <td><%= link_to 'Destroy', purchase_category, method: :delete, data: { confirm: 'All purchases of this type will be deleted. Are you sure?' }, class: 'btn btn-default btn-sm' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
